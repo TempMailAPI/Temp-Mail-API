@@ -83,12 +83,6 @@ class TempMailAPI
         return $this->request('GET', '/inboxes');
     }
 
-    // Retrieve details of a single inbox
-    public function getInbox($inboxId)
-    {
-        return $this->request('GET', '/inboxes/' . $inboxId);
-    }
-
     // Delete an inbox
     public function deleteInbox($inboxId)
     {
