@@ -8,6 +8,7 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 - PHP  
 - Node.js
 - C#
+- Java
 
 ## Features  
 - **Domain Management**: Fetch a list of available domains for email creation.  
