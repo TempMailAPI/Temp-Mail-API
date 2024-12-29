@@ -1,7 +1,3 @@
-Sure! Here’s an English introduction for the TempMailSo SDK that you can add to your GitHub README:
-
----
-
 # Temp Mail API SDK
 
 The TempMailSo SDK is a Java-based library that allows developers to interact with the TempMailSo API for managing temporary email addresses. This SDK simplifies the process of integrating TempMailSo's email services into Java applications.
