@@ -12,7 +12,7 @@
 
 const axios = require('axios');
 
-class TempMailClient {
+class TempMailSo {
     /**
      * @param {string} rapidApiKey - RapidAPI Key
      * @param {string} authToken - TempMail.so Authorization Token
