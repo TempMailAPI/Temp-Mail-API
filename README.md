@@ -4,9 +4,10 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 
 ## Supported Languages  
 
-- **Python**  
-- **PHP**  
-- **Node.js**  
+- Python
+- PHP  
+- Node.js
+- C#
 
 ## Features  
 - **Domain Management**: Fetch a list of available domains for email creation.  
