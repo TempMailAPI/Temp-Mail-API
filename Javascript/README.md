@@ -11,48 +11,7 @@ A **Node.js** client for interacting with the [TempMail.so](https://tempmail.so)
 
 ## Usage
 
-```javascript
-const TempMailSo = require('TempMailSo');
-
-// Initialize the TempMailSo client with your RapidAPI Key and Auth Token
-const tempMail = new TempMailSo('YOUR_RAPIDAPI_KEY', 'YOUR_AUTH_TOKEN');
-
-(async () => {
-    try {
-        // Get available domains
-        const domains = await tempMail.getDomains();
-        console.log('Available Domains:', domains);
-
-        // Create a new temporary inbox
-        const inbox = await tempMail.createInbox('mytempemail', domains[0], 600);
-        console.log('Created Inbox:', inbox);
-
-        // List all inboxes
-        const inboxes = await tempMail.listInboxes();
-        console.log('All Inboxes:', inboxes);
-
-        // List emails in a specific inbox
-        const mails = await tempMail.listMails(inbox.id);
-        console.log('Emails:', mails);
-
-        if (mails.length > 0) {
-            // Get details of the first email
-            const mailDetails = await tempMail.getMail(inbox.id, mails[0].id);
-            console.log('Email Details:', mailDetails);
-
-            // Delete the email
-            const deleteMailResult = await tempMail.deleteMail(inbox.id, mails[0].id);
-            console.log('Deleted Email:', deleteMailResult);
-        }
-
-        // Delete the inbox
-        const deleteInboxResult = await tempMail.deleteInbox(inbox.id);
-        console.log('Deleted Inbox:', deleteInboxResult);
-    } catch (error) {
-        console.error('Error:', error.response ? error.response.data : error.message);
-    }
-})();
-```
+see: example.js
 
 ## API Reference
 
