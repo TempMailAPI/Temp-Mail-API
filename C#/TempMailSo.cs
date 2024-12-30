@@ -17,7 +17,7 @@ using System.Text;
  * - Manage inboxes and emails
  * - Retrieve email contents
  * 
- * Author: Your Name
+ * Author: TempMail.so
  * Version: 1.0.0
  * Documentation: https://tempmail.so/us/blog/how-to-use-the-temporary-email-service-api
  */
