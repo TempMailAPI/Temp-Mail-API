@@ -8,7 +8,7 @@ This SDK provides methods to:
 - Retrieve and manage emails
 - Handle authentication
 
-Author: Your Name
+Author: TempMail.so
 License: MIT
 Version: 1.0.0
 """
