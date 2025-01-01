@@ -10,11 +10,15 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 - C#
 - Java
 
+## Docker 
+
+    docker pull tempmailso/tempmail
+
 ## Features  
 - **Inbox Management**: Create, list, and delete temporary email inboxes.  
 - **Email Handling**: Retrieve, view, and delete emails.  
 - **Flexible Lifespan**: Support for short-term and long-term inboxes.  
-- **Authentication**: Secure access using RapidAPI keys and TempMail.so tokens.  
+- **Authentication**: Secure access using RapidAPI keys and TempMail.so tokens.
 
 ## Documentation
 
