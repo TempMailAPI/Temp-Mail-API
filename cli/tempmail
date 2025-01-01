@@ -1,0 +1,179 @@
+#!/bin/bash
+
+# Configuration variables
+API_BASE_URL="https://tempmail-so.p.rapidapi.com"
+CONFIG_FILE="$HOME/.tempmail_config"
+
+# Check configuration file
+load_config() {
+    if [ -f "$CONFIG_FILE" ]; then
+        source "$CONFIG_FILE"
+    else
+        echo "Please configure API key and token first"
+        echo "Usage: ./tempmail config <rapidapi-key> <auth-token>"
+        exit 1
+    fi
+}
+
+# Function to make API requests
+call_api() {
+    local method=$1
+    local endpoint=$2
+    local data=$3
+
+    if [ -n "$data" ]; then
+        curl -s -X "$method" \
+            "$API_BASE_URL$endpoint" \
+            -H "x-rapidapi-key: $RAPID_API_KEY" \
+            -H "Authorization: Bearer $AUTH_TOKEN" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "$data"
+    else
+        curl -s -X "$method" \
+            "$API_BASE_URL$endpoint" \
+            -H "x-rapidapi-key: $RAPID_API_KEY" \
+            -H "Authorization: Bearer $AUTH_TOKEN"
+    fi
+}
+
+# Save configuration
+save_config() {
+    echo "RAPID_API_KEY=$1" > "$CONFIG_FILE"
+    echo "AUTH_TOKEN=$2" >> "$CONFIG_FILE"
+    chmod 600 "$CONFIG_FILE"
+    echo "Configuration saved"
+}
+
+# Display available domains
+list_domains() {
+    echo "Getting available domains..."
+    call_api "GET" "/domains"
+}
+
+# Create new inbox
+create_inbox() {
+    local name=$1
+    local domain=$2
+    local lifespan=${3:-0}
+    
+    echo "Creating new inbox..."
+    call_api "POST" "/inboxes" "name=$name&domain=$domain&lifespan=$lifespan"
+}
+
+# List all inboxes
+list_inboxes() {
+    echo "Getting all inboxes..."
+    call_api "GET" "/inboxes"
+}
+
+# Delete inbox
+delete_inbox() {
+    local inbox_id=$1
+    echo "Deleting inbox $inbox_id..."
+    call_api "DELETE" "/inboxes/$inbox_id"
+}
+
+# List emails
+list_mails() {
+    local inbox_id=$1
+    echo "Getting all emails from inbox $inbox_id..."
+    call_api "GET" "/inboxes/$inbox_id/mails"
+}
+
+# Read email content
+read_mail() {
+    local inbox_id=$1
+    local mail_id=$2
+    echo "Reading email content..."
+    call_api "GET" "/inboxes/$inbox_id/mails/$mail_id"
+}
+
+# Delete email
+delete_mail() {
+    local inbox_id=$1
+    local mail_id=$2
+    echo "Deleting email..."
+    call_api "DELETE" "/inboxes/$inbox_id/mails/$mail_id"
+}
+
+# Show usage help
+show_help() {
+    echo "Temporary Email Service Command Line Tool"
+    echo
+    echo "Required Credentials:"
+    echo "  - Auth Token: Get from https://tempmail.so"
+    echo "  - RapidAPI Key: Get from https://rapidapi.com/"
+    echo
+    echo "Usage:"
+    echo "  ./tempmail config <rapidapi-key> <auth-token>  # Configure API key"
+    echo "  ./tempmail domains                             # Show available domains"
+    echo "  ./tempmail create <name> <domain> [lifespan]   # Create new inbox"
+    echo "  ./tempmail list                               # List all inboxes"
+    echo "  ./tempmail delete-inbox <inbox-id>            # Delete inbox"
+    echo "  ./tempmail list-mails <inbox-id>             # List emails in inbox"
+    echo "  ./tempmail read-mail <inbox-id> <mail-id>    # Read email content"
+    echo "  ./tempmail delete-mail <inbox-id> <mail-id>  # Delete email"
+    echo "  ./tempmail help                              # Show this help message"
+}
+
+# Main program
+case $1 in
+    "config")
+        if [ -z "$2" ] || [ -z "$3" ]; then
+            echo "Please provide RapidAPI key and auth token"
+            exit 1
+        fi
+        save_config "$2" "$3"
+        ;;
+    "domains")
+        load_config
+        list_domains
+        ;;
+    "create")
+        load_config
+        if [ -z "$2" ] || [ -z "$3" ]; then
+            echo "Please provide inbox name and domain"
+            exit 1
+        fi
+        create_inbox "$2" "$3" "$4"
+        ;;
+    "list")
+        load_config
+        list_inboxes
+        ;;
+    "delete-inbox")
+        load_config
+        if [ -z "$2" ]; then
+            echo "Please provide inbox ID"
+            exit 1
+        fi
+        delete_inbox "$2"
+        ;;
+    "list-mails")
+        load_config
+        if [ -z "$2" ]; then
+            echo "Please provide inbox ID"
+            exit 1
+        fi
+        list_mails "$2"
+        ;;
+    "read-mail")
+        load_config
+        if [ -z "$2" ] || [ -z "$3" ]; then
+            echo "Please provide inbox ID and mail ID"
+            exit 1
+        fi
+        read_mail "$2" "$3"
+        ;;
+    "delete-mail")
+        load_config
+        if [ -z "$2" ] || [ -z "$3" ]; then
+            echo "Please provide inbox ID and mail ID"
+            exit 1
+        fi
+        delete_mail "$2" "$3"
+        ;;
+    "help"|*)
+        show_help
+        ;;
+esac 
