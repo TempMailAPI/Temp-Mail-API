@@ -18,7 +18,7 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 
 ## Documentation
 
-Detailed API documentation can be found at the TempMail.so API Documentation.
+Detailed API documentation can be found at the TempMail.so [API Documentation](https://tempmail.so/temp-mail-api).
 
 ## Contributing
 
