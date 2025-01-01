@@ -26,17 +26,17 @@ try {
         $inboxId = $inboxes['data'][0]['id'];
 
         // Get the list of messages in the inbox
-        $messages = $tempMail->listMessages($inboxId);
+        $messages = $tempMail->listMails($inboxId);
         print_r($messages);
 
         // Retrieve details of a specific message
         if (!empty($messages['data'])) {
-            $messageId = $messages['data'][0]['id'];
-            $messageDetails = $tempMail->getMessage($messageId);
+            $mailId = $messages['data'][0]['id'];
+            $messageDetails = $tempMail->getMail($inboxId, $mailId);
             print_r($messageDetails);
 
             // Delete the message
-            $deleteMessage = $tempMail->deleteMessage($messageId);
+            $deleteMessage = $tempMail->deleteMail($inboxId, $mailId);
             print_r($deleteMessage);
         }
 
