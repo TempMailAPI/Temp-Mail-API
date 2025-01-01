@@ -29,6 +29,11 @@ tempmail delete-mail <inbox-id> <mail-id>    # Delete email
 tempmail help                                # Show help message
 ```
 
+## Credentials
+
+- Auth Token: Get from https://tempmail.so
+- RapidAPI Key: Get from https://rapidapi.com/
+
 ## Features  
 - **Inbox Management**: Create, list, and delete temporary email inboxes.  
 - **Email Handling**: Retrieve, view, and delete emails.  
