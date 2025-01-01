@@ -86,7 +86,7 @@ tempmail help                                # Show help message
 
 ## Docker Image Details
 
-- Base Image: Alpine Linux 3.18
+- Base Image: Alpine Linux 3.21.0
 - Installed Dependencies: bash, curl
 - Size: Minimal (~10MB)
 - Global Command: The `tempmail` command is available system-wide in the container
