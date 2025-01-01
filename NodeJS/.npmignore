@@ -1,0 +1,41 @@
+# Development and testing related
+test/
+tests/
+coverage/
+.nyc_output/
+
+# IDE and editor configurations
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Git related
+.git/
+.gitignore
+.github/
+
+# Other configuration files
+.eslintrc*
+.prettierrc*
+.editorconfig
+.travis.yml
+.gitlab-ci.yml
+
+# Documentation and examples
+docs/
+examples/
+*.md
+!README.md
+
+# Dependencies and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Others
+.DS_Store
+*.log
+*.tmp
+*.temp 
