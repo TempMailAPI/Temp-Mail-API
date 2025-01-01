@@ -27,7 +27,7 @@ Detailed API documentation can be found at the TempMail.so [API Documentation](h
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the SDKs.
+Contributions are welcome! Feel free to open issues or submit pull requests to improve this repo.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
