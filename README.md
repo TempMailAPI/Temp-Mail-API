@@ -15,6 +15,20 @@ A collection of implementations for interacting with the [TempMail.so](https://t
 
     docker pull tempmailso/tempmail
 
+## CLI
+
+```bash
+tempmail config <rapidapi-key> <auth-token>  # Configure API key
+tempmail domains                             # Show available domains
+tempmail create <name> <domain> [lifespan]   # Create new inbox
+tempmail list                                # List all inboxes
+tempmail delete-inbox <inbox-id>             # Delete inbox
+tempmail list-mails <inbox-id>               # List emails in inbox
+tempmail read-mail <inbox-id> <mail-id>      # Read email content
+tempmail delete-mail <inbox-id> <mail-id>    # Delete email
+tempmail help                                # Show help message
+```
+
 ## Features  
 - **Inbox Management**: Create, list, and delete temporary email inboxes.  
 - **Email Handling**: Retrieve, view, and delete emails.  
