@@ -4,8 +4,8 @@
  * TempMailAPI SDK
  * 
  * This PHP SDK provides methods to interact with the TempMail.so API.
- * Features include managing temporary email inboxes, retrieving messages,
- * and performing actions such as inbox or message deletion.
+ * Features include managing temporary email inboxes, retrieving mails,
+ * and performing actions such as inbox or mail deletion.
  * 
  * Usage:
  * - Initialize the class with your RapidAPI key and authentication token.
@@ -15,6 +15,7 @@
  * 
  * Author: TempMail.so
  * License: TempMail.so
+ */
 
 class TempMailAPI
 {
@@ -89,22 +90,22 @@ class TempMailAPI
         return $this->request('DELETE', '/inboxes/' . $inboxId);
     }
 
-    // Get the list of messages in an inbox
-    public function listMessages($inboxId)
+    // Get the list of mails in an inbox
+    public function listMails($inboxId)
     {
-        return $this->request('GET', '/inboxes/' . $inboxId . '/messages');
+        return $this->request('GET', '/inboxes/' . $inboxId . '/mails');
     }
 
-    // Retrieve details of a specific message
-    public function getMessage($messageId)
+    // Retrieve details of a specific mail
+    public function getMail($inboxId, $mailId)
     {
-        return $this->request('GET', '/messages/' . $messageId);
+        return $this->request('GET', '/inboxes/' . $inboxId . '/mails/' . $mailId);
     }
 
-    // Delete a message
-    public function deleteMessage($messageId)
+    // Delete a mail
+    public function deleteMail($inboxId, $mailId)
     {
-        return $this->request('DELETE', '/messages/' . $messageId);
+        return $this->request('DELETE', '/inboxes/' . $inboxId . '/mails/' . $mailId);
     }
   
 }
