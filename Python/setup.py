@@ -7,7 +7,7 @@ setup(
     name="temp-mail-so",
     version="1.0.0",
     author="TempMail.so",
-    author_email="author@tempmail.so",
+    author_email="service@tempmail.so",
     description="A Python SDK for TempMail.so temporary email service",
     long_description=long_description,
     long_description_content_type="text/markdown",
