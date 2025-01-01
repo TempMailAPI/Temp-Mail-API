@@ -11,7 +11,6 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 - Java
 
 ## Features  
-- **Domain Management**: Fetch a list of available domains for email creation.  
 - **Inbox Management**: Create, list, and delete temporary email inboxes.  
 - **Email Handling**: Retrieve, view, and delete emails.  
 - **Flexible Lifespan**: Support for short-term and long-term inboxes.  
