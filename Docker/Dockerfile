@@ -6,7 +6,7 @@ RUN apk add --no-cache \
     curl
 
 # Copy the script
-COPY tempmail /usr/local/bin/
+COPY ../cli/tempmail /usr/local/bin/
 RUN chmod +x /usr/local/bin/tempmail
 
 # Set bash as the default shell
