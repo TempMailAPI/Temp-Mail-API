@@ -9,6 +9,7 @@ A collection of SDKs for interacting with the [TempMail.so](https://tempmail.so)
 - Node.js
 - C#
 - Java
+- Shell
 
 ## Docker 
 
