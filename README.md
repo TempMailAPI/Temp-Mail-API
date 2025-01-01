@@ -1,6 +1,6 @@
 # Temp Mail API
 
-A collection of implementations for interacting with the [TempMail.so](https://tempmail.so) temporary email service API. These SDKs allow developers to create and manage temporary email inboxes, retrieve emails, and handle other functionality with ease.  
+A collection of implementations for interacting with the [TempMail.so](https://tempmail.so) temporary email service API. It allow developers to create and manage temporary email inboxes, retrieve emails, and handle other functionality with ease.  
 
 ## Supported Languages  
 
